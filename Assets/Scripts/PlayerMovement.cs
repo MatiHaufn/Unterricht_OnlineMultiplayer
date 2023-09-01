@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public TextMesh playerNameText; 
     public float _speed;
- 
+
+    [SerializeField] GameObject _ballTracker; 
+
     Rigidbody2D _myRigidbody; 
     PhotonView photonView;
 
@@ -29,6 +31,22 @@ public class PlayerMovement : MonoBehaviour
         Vector2 move = new Vector2(horizontal, vertical);
 
         _myRigidbody.velocity = move * _speed; 
+
+        if(Input.GetMouseButtonDown(0) && _ballTracker.GetComponent<BallTracker>()._ballTouched)
+        {
+            _ballTracker.GetComponent<BallTracker>()._ball.GetComponent<PushBall>().AddForceToBall(transform.position);
+        }
+
+
+        //Berechnung der Mausposition 
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = transform.position.z; 
+
+        Vector3 directionToMouse = transform.position - mousePosition;
+
+        float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     public void SetPlayerName(string name)

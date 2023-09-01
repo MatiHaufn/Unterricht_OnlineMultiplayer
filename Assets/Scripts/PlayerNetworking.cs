@@ -3,19 +3,24 @@ using UnityEngine;
 
 public class PlayerNetworking : MonoBehaviour
 {
-    public MonoBehaviour[] scriptsToIgnore;
-    PhotonView photonView; 
+    public MonoBehaviour[] _scriptsToIgnore;
+    public GameObject[] _objToIgnore; 
+    PhotonView _photonView; 
 
     void Start()
     {
-        photonView = GetComponent<PhotonView>();
-        if(!photonView.IsMine)
+        _photonView = GetComponent<PhotonView>();
+        if(!_photonView.IsMine)
         {
             GetComponent<SpriteRenderer>().color = new Color(1, 0.23f, 0.19f);
 
-            foreach (var script in scriptsToIgnore) 
+            foreach (var script in _scriptsToIgnore) 
             {
                 script.enabled = false; 
+            }
+            foreach(GameObject gameObj in _objToIgnore)
+            {
+                gameObj.SetActive(false);
             }
         }
     }

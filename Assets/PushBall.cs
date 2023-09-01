@@ -12,12 +12,11 @@ public class PushBall : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void AddForceToBall(Vector3 playerPosition)
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            Vector2 hitDirection = (transform.position - collision.transform.position).normalized;
-            rb.AddForce(hitDirection * forceMultiplyer, ForceMode2D.Impulse);
-        }    
+        Vector2 hitDirection = (transform.position - playerPosition).normalized;
+        rb.velocity = hitDirection; 
+        rb.AddForce(hitDirection * forceMultiplyer, ForceMode2D.Impulse);
     }
+
 }
