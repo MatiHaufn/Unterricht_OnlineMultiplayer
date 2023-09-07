@@ -35,7 +35,6 @@ public class LoginManager : MonoBehaviour
     public void OnClickStartGame()
     {
         PlayerNickName = nickNameInput.text;  // Den Wert in der statischen Variable speichern
-        Debug.Log(PlayerNickName);
         SceneManager.LoadScene("Game");
     }
 }

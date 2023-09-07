@@ -955,6 +955,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 6701741719950618894, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
+      propertyPath: m_SynchronizeAngularVelocity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7618366431082936297, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: sceneViewId
       value: 2
@@ -974,6 +978,10 @@ PrefabInstance:
     - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_Constraints

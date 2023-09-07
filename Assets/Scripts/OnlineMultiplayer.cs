@@ -42,8 +42,9 @@ public class OnlineMultiplayer : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom called"); 
+
         GameObject player = PhotonNetwork.Instantiate("Player", new Vector2(5, 0), Quaternion.identity);
-        string playerName = LoginManager.PlayerNickName;  
-        player.GetComponent<PlayerMovement>().SetPlayerName(playerName);
+        player.GetComponent<PlayerMovement>().SetPlayerName(LoginManager.PlayerNickName);
+        player.GetComponent<PhotonView>().RPC("UpdatePlayerName", RpcTarget.AllBuffered, LoginManager.PlayerNickName);
     }
 }
