@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1929174401921918453, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.32
       objectReference: {fileID: 0}
     - target: {fileID: 1929174401921918453, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_LocalPosition.y
@@ -981,11 +981,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_LinearDrag
-      value: 0.2
+      value: 0.175
       objectReference: {fileID: 0}
     - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8437202264176572931, guid: 28decac9ece53b24593bbeeb64094554, type: 3}
       propertyPath: m_GravityScale

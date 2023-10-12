@@ -1,5 +1,4 @@
 using Photon.Pun;
-using TMPro;
 using UnityEngine;
 
 public class PushBall : MonoBehaviour
@@ -15,18 +14,26 @@ public class PushBall : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         photonView = GetComponent<PhotonView>();
     }
-
+    private void Update()
+    {
+        if (rb.velocity.magnitude > 0)
+        {
+            rb.velocity -= rb.velocity.normalized * Time.deltaTime;
+        }
+        Debug.Log(rb.velocity);
+    }
     public void AddForceToBall(Vector3 playerPosition)
     {
         Vector2 hitDirection = (transform.position - playerPosition).normalized;
+
         if (rb.velocity.magnitude < maxForce)
             rb.velocity = rb.velocity.magnitude * hitDirection;
         else
             rb.velocity = maxForce * hitDirection; 
+        
         rb.AddForce(hitDirection * forceMultiplyer, ForceMode2D.Impulse);
 
         photonView.RPC("SyncBallMovement", RpcTarget.All, rb.velocity, transform.position);
-
     }
 
     [PunRPC]
