@@ -13,15 +13,18 @@ public class PushBall : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         photonView = GetComponent<PhotonView>();
+
     }
+
     private void Update()
     {
         if (rb.velocity.magnitude > 0)
         {
             rb.velocity -= rb.velocity.normalized * Time.deltaTime;
         }
-        Debug.Log(rb.velocity);
     }
+
+
     public void AddForceToBall(Vector3 playerPosition)
     {
         Vector2 hitDirection = (transform.position - playerPosition).normalized;
@@ -33,13 +36,13 @@ public class PushBall : MonoBehaviour
         
         rb.AddForce(hitDirection * forceMultiplyer, ForceMode2D.Impulse);
 
-        photonView.RPC("SyncBallMovement", RpcTarget.All, rb.velocity, transform.position);
+        photonView.RPC("UpdateBallMovement", RpcTarget.All, rb.velocity, transform.position);
     }
 
     [PunRPC]
-    private void SyncBallMovement(Vector2 velocity, Vector3 position)
+    private void UpdateBallMovement(Vector2 velocity, Vector3 position)
     {
-        rb.velocity = velocity;
         transform.position = position;
+        rb.velocity = velocity;
     }
 }

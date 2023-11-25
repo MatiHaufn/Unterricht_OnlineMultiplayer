@@ -42,6 +42,10 @@ MonoBehaviour:
   - UpdatePlayerName
   - SyncBallMovement
   - SyncPlayerMovement
+  - SyncPlayerHealth
+  - SyncPlayerDeath
+  - UpdateBallMovement
+  - SyncPlayerCount
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
