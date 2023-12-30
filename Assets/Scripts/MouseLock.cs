@@ -43,7 +43,7 @@ public class MouseLook : MonoBehaviour
         }
 
         // Setzen Sie die Mausposition auf die begrenzte Position zurück
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }

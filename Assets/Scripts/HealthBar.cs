@@ -47,7 +47,6 @@ public class HealthBar : MonoBehaviour
     [PunRPC]
     private void SyncPlayerDeath()
     {
-        GameManager.Instance.playerDeadCount++; 
         GameManager.Instance.PlayerDied(_nickName.text);
         PhotonView.Destroy(gameObject); 
     }

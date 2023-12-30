@@ -11,6 +11,7 @@ public class BallTracker : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     private void Start()
     {
+        _ball = GameObject.Find("BallPrefab"); 
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
